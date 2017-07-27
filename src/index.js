@@ -33,7 +33,14 @@ function numberOrObject(val) {
 
 function enforceTypes(methodName, args) {
   switch (methodName) {
-    case 'resize': {
+    case 'blur':
+    case 'rotate':
+    {
+      return numberOrObject(args);
+    }
+    case 'sharpen':
+    case 'resize':
+    {
       if (Array.isArray(args)) {
         return args.map(numberOrObject);
       }
